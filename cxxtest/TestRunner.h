@@ -5,18 +5,22 @@
 // TestRunner is the class that runs all the tests.
 // To use it, create an object that implements the TestListener
 // interface and call TestRunner::runAllTests( myListener );
-// 
+//
 
 #include <cxxtest/TestListener.h>
 #include <cxxtest/RealDescriptions.h>
 #include <cxxtest/TestSuite.h>
 #include <cxxtest/TestTracker.h>
 
-namespace CxxTest 
+namespace CxxTest
 {
     class TestRunner
     {
     public:
+        static void setListener( TestListener* listener) {
+            tracker().setListener(listener);
+        }
+
         static void runAllTests( TestListener &listener )
         {
             tracker().setListener( &listener );
