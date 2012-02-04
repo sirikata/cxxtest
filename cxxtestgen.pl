@@ -139,7 +139,7 @@ sub scanInputFileX($) {
 
 sub scanInputFiles() {
   my $argnum=0;
-  while ($argnum < $#ARGV) {
+  while ($argnum < @ARGV) {
       $argnum=scanInputFileX($argnum);
   }
   scalar @suites or $root or die("No tests defined\n");
